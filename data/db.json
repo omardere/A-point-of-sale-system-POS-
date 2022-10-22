@@ -1,0 +1,71 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Corn Flex",
+      "code": "1",
+      "category": "break-fast",
+      "image": "corn-flex.jpg"
+    },
+    {
+      "id": "2",
+      "name": "jeans",
+      "code": "2",
+      "category": "jeans",
+      "image": "jenze.jpg"
+    },
+    {
+      "id": "3",
+      "name": "black-jeans",
+      "code": "3",
+      "category": "jeans",
+      "image": "jenze-black.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Kit Kat",
+      "code": "4",
+      "category": "chocolate",
+      "image": "kit-kat.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Milk",
+      "code": "5",
+      "category": "drinks",
+      "image": "milk.png"
+    },
+    {
+      "name": "burger",
+      "category": "chocolate",
+      "image": "milk.png",
+      "code": "402",
+      "id": "7Z1GmTA"
+    },
+    {
+      "name": "omar dere",
+      "category": "jeans",
+      "image": "jenze-black.jpg",
+      "code": "403",
+      "id": "aIsUCxX"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "break-fast"
+    },
+    {
+      "id": "2",
+      "name": "jeans"
+    },
+    {
+      "id": "3",
+      "name": "chocolate"
+    },
+    {
+      "id": "4",
+      "name": "drinks"
+    }
+  ]
+}

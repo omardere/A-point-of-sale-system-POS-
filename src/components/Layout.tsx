@@ -2,22 +2,29 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   HomeOutlined,
-
+  ShoppingCartOutlined
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { reactElementProps, typeRootState } from '../types/productsType';
+import { useSelector } from "react-redux";
 import "./layout.css"
+import Loading from './Loading';
 
 const { Header, Sider, Content } = Layout;
-type Props = {
-  children: JSX.Element,
-};
-const LayoutApp: React.FC<Props> = ({ children }) => {
+const LayoutApp: React.FC<reactElementProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { cartItems, loading } = useSelector((state: typeRootState) => state.rootReducer);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  }, [cartItems])
 
   return (
     <Layout>
+      {loading && <Loading />}
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo" >
           <h2 className="logo-title">
@@ -50,6 +57,10 @@ const LayoutApp: React.FC<Props> = ({ children }) => {
             className: 'trigger',
             onClick: () => setCollapsed(!collapsed),
           })}
+          <div className="cart-items" onClick={() => navigate("/cart")}>
+            <ShoppingCartOutlined />
+            <span className="cart-size">{cartItems.length}</span>
+          </div>
         </Header>
         <Content
           className="site-layout-background"

@@ -3,3 +3,92 @@
   padding: 0;
   box-sizing: border-box;
 }
+.product-buttons {
+  margin-top: 24px;
+}
+.product-buttons Button {
+  display: block;
+  margin: 0 auto;
+  background-color: #001e28;
+  color: white;
+  box-shadow: 0 0 5px #001e28;
+  transition: all 0.5s;
+  border: none;
+}
+.product-buttons Button:hover {
+  color: black;
+}
+.quantity-minus {
+  margin-right: 8px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.quantity-minus:hover {
+  filter: drop-shadow(0 0 2px #001e28);
+  color: white;
+}
+
+.quantity-plus {
+  margin-left: 8px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.quantity-plus:hover {
+  filter: drop-shadow(0 0 2px #001e28);
+  color: white;
+}
+
+.quantity {
+  font-size: 20px;
+  vertical-align: bottom;
+}
+.remove-product-from-cart {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.remove-product-from-cart:hover {
+  color: red;
+}
+.loading {
+  text-align: center;
+  letter-spacing: 1.3px;
+  color: #001e28;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.edit-product {
+  margin-left: 24px;
+  transition: all 0.5s;
+}
+.edit-product:hover {
+  color: green;
+  cursor: pointer;
+}
+.add-new {
+  display: block !important;
+  margin-bottom: 16px !important;
+  background-color: #001e28 !important;
+  color: white !important;
+  box-shadow: 0 0 5px #001e28 !important;
+  transition: all 0.5s !important;
+  border: none !important;
+}
+.add-new:hover {
+  background-color: white !important;
+  color: #001e28 !important;
+}
+.add-btn {
+  display: block !important;
+  margin-bottom: 16px !important;
+  background-color: #001e28 !important;
+  color: white !important;
+  box-shadow: 0 0 5px #001e28 !important;
+  transition: all 0.5s !important;
+  border: none !important;
+  width: 100px;
+}
+.add-btn:hover {
+  background-color: white !important;
+  color: #001e28 !important;
+}

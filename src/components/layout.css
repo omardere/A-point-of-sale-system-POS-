@@ -39,3 +39,21 @@
   letter-spacing: 1.3px;
   color: #ffffff;
 }
+.ant-layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-items{
+  position: relative;
+  margin-right: 24px;
+  cursor: pointer;
+}
+.cart-size{
+ padding: 5px;
+  top: -10px;
+  right: -24px;
+  background-color: #001e28;
+  color: #ffffff;
+  border-radius: 50px;
+}
