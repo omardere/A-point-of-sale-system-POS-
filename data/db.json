@@ -1,64 +1,238 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Corn Flex",
-      "code": "1",
-      "category": "break-fast",
-      "image": "corn-flex.jpg"
-    },
-    {
-      "id": "2",
-      "name": "jeans",
-      "code": "2",
-      "category": "jeans",
-      "image": "jenze.jpg"
-    },
-    {
-      "id": "3",
-      "name": "black-jeans",
-      "code": "3",
-      "category": "jeans",
-      "image": "jenze-black.jpg"
-    },
-    {
-      "id": "4",
-      "name": "Kit Kat",
-      "code": "4",
-      "category": "chocolate",
-      "image": "kit-kat.jpg"
-    },
-    {
-      "id": "5",
-      "name": "Milk",
-      "code": "5",
-      "category": "drinks",
-      "image": "milk.png"
-    },
-    {
       "name": "burger",
-      "category": "chocolate",
-      "image": "milk.png",
+      "category": "Burger",
+      "image": "burger.png",
       "code": "402",
       "id": "7Z1GmTA"
     },
     {
-      "name": "omar dere",
-      "category": "jeans",
-      "image": "jenze-black.jpg",
-      "code": "403",
-      "id": "aIsUCxX"
+      "name": "kitkat",
+      "category": "chocolate",
+      "image": "kit-kat.jpg",
+      "code": "778",
+      "id": "cYsgWn7"
+    },
+    {
+      "name": "dress shoes",
+      "category": "shoes",
+      "image": "dress shoes.png",
+      "code": "500",
+      "id": "rAZViNZ"
+    },
+    {
+      "name": "adidas white shoes ",
+      "category": "shoes",
+      "image": "addids shoes.png",
+      "code": "504",
+      "id": "eWWn7eR"
+    },
+    {
+      "name": "traditional shoes",
+      "category": "shoes",
+      "image": "old-shoes.png",
+      "code": "747",
+      "id": "XxmLtu-"
+    },
+    {
+      "name": "Nike black shoes",
+      "category": "shoes",
+      "image": "shoes nike.jpg",
+      "code": "124",
+      "id": "8vFEj8E"
+    },
+    {
+      "name": "Repok shoes",
+      "category": "shoes",
+      "image": "repok-shoes.webp",
+      "code": "487",
+      "id": "B2TR4MJ"
+    },
+    {
+      "name": "Native shoes",
+      "category": "shoes",
+      "image": "native shoes.jpg",
+      "code": "214",
+      "id": "TVumBvc"
+    },
+    {
+      "name": "Nike t-shirt",
+      "category": "t-shirt",
+      "image": "nike shirt.jpg",
+      "code": "900",
+      "id": "Pznl0pE"
+    },
+    {
+      "name": "Adidas t-shirts",
+      "category": "t-shirt",
+      "image": "adidas shirt.webp",
+      "code": "901",
+      "id": "4x3ZV35"
+    },
+    {
+      "name": "Yellow sad t-shirt",
+      "category": "t-shirt",
+      "image": "yellow sad shirt.jpg",
+      "code": "902",
+      "id": "bbmriau"
+    },
+    {
+      "name": "White sad t-shirt",
+      "category": "t-shirt",
+      "image": "white sad shirt.webp",
+      "code": "903",
+      "id": "-_JyTz-"
+    },
+    {
+      "name": "Blue sad t-shirt",
+      "category": "t-shirt",
+      "image": "blue sad shirt.jpg",
+      "code": "904",
+      "id": "nC2GjH7"
+    },
+    {
+      "name": "Cotton t-shirt",
+      "category": "t-shirt",
+      "image": "cotton shirt.jpg",
+      "code": "905",
+      "id": "lp43JsW"
+    },
+    {
+      "name": "Red sad t-shirt",
+      "category": "t-shirt",
+      "image": "red sad shirt.jpg",
+      "code": "906",
+      "id": "vFkBpo_"
+    },
+    {
+      "name": "Orange juce",
+      "category": "drinks",
+      "image": "cappy orange.jpg",
+      "code": "600",
+      "id": "-TZ8OOM"
+    },
+    {
+      "name": "XL",
+      "category": "drinks",
+      "image": "xl.jpeg",
+      "code": "601",
+      "id": "-eBo3P2"
+    },
+    {
+      "name": "Sprite ",
+      "category": "drinks",
+      "image": "sprite.jpg",
+      "code": "604",
+      "id": "nZkn6ep"
+    },
+    {
+      "name": "Sprite",
+      "category": "drinks",
+      "image": "plastic sprite.png",
+      "code": "605",
+      "id": "GDIu_hg"
+    },
+    {
+      "name": "Fanta",
+      "category": "drinks",
+      "image": "fanta.jpg",
+      "code": "606",
+      "id": "nDkg_eS"
+    },
+    {
+      "name": "Fanta",
+      "category": "drinks",
+      "image": "plastic fanta.png",
+      "code": "607",
+      "id": "ZKngAq7"
+    },
+    {
+      "name": "Coca Cola",
+      "category": "drinks",
+      "image": "cola.jpg",
+      "code": "608",
+      "id": "wQGB4SW"
+    },
+    {
+      "name": "Coca Cola",
+      "category": "drinks",
+      "image": "plastic cola.jpg",
+      "code": "610",
+      "id": "zwUNn0_"
+    },
+    {
+      "name": "Coca Cola",
+      "category": "drinks",
+      "image": "glass cola.jpg",
+      "code": "611",
+      "id": "ZGlHPV2"
+    },
+    {
+      "name": "Said ",
+      "category": "chocolate",
+      "image": "said.jpg",
+      "code": "1000",
+      "id": "42VwHqS"
+    },
+    {
+      "name": "Oreo",
+      "category": "chocolate",
+      "image": "oreo.webp",
+      "code": "1001",
+      "id": "IJbY_Hc"
+    },
+    {
+      "name": "Bubbly",
+      "category": "chocolate",
+      "image": "bubbly.jpg",
+      "code": "1002",
+      "id": "guhEA8p"
+    },
+    {
+      "name": "Kinder",
+      "category": "chocolate",
+      "image": "kinder.jpg",
+      "code": "1003",
+      "id": "jkVuZQO"
+    },
+    {
+      "name": "Galaxy",
+      "category": "chocolate",
+      "image": "galaxy.png",
+      "code": "1005",
+      "id": "t7XM_pe"
+    },
+    {
+      "name": "Dairy Milk",
+      "category": "chocolate",
+      "image": "dairy milk.webp",
+      "code": "1006",
+      "id": "WULQvhO"
+    },
+    {
+      "name": "Humburger",
+      "category": "Burger",
+      "image": "humburger.jpg",
+      "code": "141",
+      "id": "udNHoLX"
+    },
+    {
+      "name": "Beef Burger",
+      "category": "Burger",
+      "image": "beef burger.jpg",
+      "code": "545",
+      "id": "buoExIp"
+    },
+    {
+      "name": "Basic burger",
+      "category": "Burger",
+      "image": "basic burger.jpg",
+      "code": "654",
+      "id": "T_8-ABZ"
     }
   ],
   "categories": [
-    {
-      "id": "1",
-      "name": "break-fast"
-    },
-    {
-      "id": "2",
-      "name": "jeans"
-    },
     {
       "id": "3",
       "name": "chocolate"
@@ -66,6 +240,18 @@
     {
       "id": "4",
       "name": "drinks"
+    },
+    {
+      "name": "Burger",
+      "id": "oLbli5Z"
+    },
+    {
+      "name": "t-shirt",
+      "id": "lzPJyYW"
+    },
+    {
+      "name": "shoes",
+      "id": "rmDcoVi"
     }
   ]
 }

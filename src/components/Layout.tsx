@@ -2,7 +2,9 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   HomeOutlined,
-  ShoppingCartOutlined
+  ShoppingCartOutlined,
+  ShopOutlined,
+  SketchOutlined 
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useEffect, useState } from 'react';
@@ -41,11 +43,11 @@ const LayoutApp: React.FC<reactElementProps> = ({ children }) => {
             <Link to="/">Home</Link>
           </Menu.Item>
 
-          <Menu.Item key="/products" icon={<HomeOutlined />}>
+          <Menu.Item key="/products" icon={<ShopOutlined />}>
             <Link to="/products">Products</Link>
           </Menu.Item>
 
-          <Menu.Item key="/Categories" icon={<HomeOutlined />}>
+          <Menu.Item key="/Categories" icon={<SketchOutlined  />}>
             <Link to="/Categories">Categories</Link>
           </Menu.Item>
         </Menu>

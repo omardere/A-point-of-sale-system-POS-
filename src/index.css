@@ -92,3 +92,33 @@
   background-color: white !important;
   color: #001e28 !important;
 }
+.category {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.category-box {
+  margin: 0 32px;
+  cursor: pointer;
+  padding: 8px;
+}
+.category-selected {
+  box-shadow: 0 0 5px #afafaf;
+  border-radius: 5px;
+}
+.category-name {
+  letter-spacing: 1.3px;
+  text-transform: capitalize;
+}
+.search {
+  width: 50% !important;
+  align-items: flex-end;
+  padding: 8px;
+  margin-bottom: 16px;
+  margin-right: 0px;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

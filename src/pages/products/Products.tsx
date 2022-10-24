@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LayoutApp from '../../components/Layout'
 import { useDispatch } from "react-redux"
-import { getAllCategories, getAllProducts } from '../../utils/api';
+import { deleteProducts, getAllCategories, getAllProducts } from '../../utils/api';
 import { productType, categoriesType } from '../../types/productsType';
 import {
   DeleteOutlined,
@@ -16,15 +16,27 @@ import axios from 'axios';
 const Products = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState<productType[]>([]);
+  const [searchData, setSearchData] = useState<productType[]>([]);
   const [categories, setCategories] = useState<categoriesType[]>([]);
   const [pop, setPop] = useState<boolean>(false);
   const [imageName, setImageName] = useState<string>("");
+  const [editProduct, setEditProduct] = useState<any>(null);
+  const { Search } = Input;
+
+  const onSearch = (value: string) => {
+    setSearchData(
+      products.filter(product => product.name.toLowerCase().includes(value))
+    )
+  };
+
 
   const fetchProducts = () => {
     getAllProducts()
       .then((res) => {
         setProducts(res.data);
+        setSearchData(res.data);
       }).catch(function (error) {
+        message.warning("the updated problem");
         console.log(error.toJSON());
       });
   }
@@ -56,17 +68,51 @@ const Products = () => {
       code: value.code
     })
   }
-  const handleInput = (value: any) => {
+  const updateProducts = (value: any) => {
+    axios.put(`http://localhost:8000/products/${editProduct.id}`, {
+      name: value.name,
+      category: value.category,
+      image: imageName,
+      code: value.code
+    })
+  }
+
+  const handleDelete = (record: any) => {
     dispatch({
       type: "SHOW_LOADING",
     });
-    addProducts(value);
-    message.success('product added successfully');
-    fetchProducts();
+    deleteProducts(record).then(message.success('product deleted successfully'));
+    setTimeout(() => fetchProducts(), 1000)
     setPop(false);
     dispatch({
       type: "HIDDEN_LOADING",
     });
+  }
+  const handleInput = (value: any) => {
+    if (editProduct === null) {
+      dispatch({
+        type: "SHOW_LOADING",
+      });
+      addProducts(value);
+      message.success('product added successfully');
+      setTimeout(() => fetchProducts(), 1000)
+      setPop(false);
+      dispatch({
+        type: "HIDDEN_LOADING",
+      });
+    }
+    else {
+      dispatch({
+        type: "SHOW_LOADING",
+      });
+      updateProducts(value);
+      setTimeout(() => fetchProducts(), 1000)
+      message.success('product updated successfully');
+      setPop(false);
+      dispatch({
+        type: "HIDDEN_LOADING",
+      });
+    }
   }
 
 
@@ -98,50 +144,57 @@ const Products = () => {
       key: 'id',
       render: (id: string, record: any) =>
         <div>
-          <DeleteOutlined className='remove-product-from-cart' />
-          <EditOutlined className='edit-product' />
+          <DeleteOutlined onClick={() => handleDelete(record)} className='remove-product-from-cart' />
+          <EditOutlined onClick={() => { setEditProduct(record); setImageName(record.image); setPop(true) }} className='edit-product' />
         </div>
 
     },
   ];
-
   return (
     <LayoutApp >
       <h2>All products</h2>
-      <Button onClick={() => setPop(true)} className='add-new'>Add New Product</Button>
-      <Table dataSource={products} columns={columns} />;
-      <Modal title="Add New Product" open={pop} onCancel={() => setPop(false)} footer={false}>
-        <Form onFinish={handleInput} layout='vertical'>
-          <FormItem name='name' label='Name'>
-            <Input />
-          </FormItem>
-          <FormItem name='code' label='Code'>
-            <Input />
-          </FormItem>
-          <Form.Item name='category' label='Category'>
-            <Select >
-              {categories.map(item => {
-                return (
-                  <Select.Option key={item.id} value={item.name}>{item.name} </Select.Option>
-                )
-              })}
-            </Select>
-          </Form.Item>
-          <Form.Item label="Upload Image" valuePropName="fileList">
-            <Upload beforeUpload={(file: any) => { setImageName(file.name); console.log(file.name) }} action="http://localhost:3000/products" listType="picture-card">
-              <div>
-                <PlusOutlined />
-                <div style={{ marginTop: 8 }}>Upload</div>
-              </div>
-            </Upload>
-          </Form.Item>
-          <div className="add-btn-to-form">
-            <Button htmlType='submit' className='add-btn'>
-              Add
-            </Button>
-          </div>
-        </Form>
-      </Modal>
+      <div className="buttons">
+        <Button onClick={() => setPop(true)} className='add-new'>Add New Product</Button>
+        <Search style={{ width: "30%" }} placeholder="input search text" onSearch={onSearch} enterButton />
+      </div>
+
+      <Table dataSource={searchData} columns={columns} />;
+      {
+        pop &&
+        <Modal title={`${editProduct !== null ? "Edit Product" : "Add New Product"}`} open={pop} onCancel={() => { setEditProduct(null); setPop(false) }} footer={false}>
+          <Form onFinish={handleInput} initialValues={editProduct} layout='vertical'>
+            <FormItem name='name' label='Name'>
+              <Input />
+            </FormItem>
+            <FormItem name='code' label='Code'>
+              <Input />
+            </FormItem>
+            <Form.Item name='category' label='Category'>
+              <Select >
+                {categories.map(item => {
+                  return (
+                    <Select.Option key={item.id} value={item.name}>{item.name} </Select.Option>
+                  )
+                })}
+              </Select>
+            </Form.Item>
+            <Form.Item label="Upload Image" valuePropName="fileList">
+
+              <Upload beforeUpload={(file: any) => { setImageName(file.name) }} action="http://localhost:3000/products" listType="picture-card">
+                <div>
+                  <PlusOutlined />
+                  <div style={{ marginTop: 8 }}>Upload</div>
+                </div>
+              </Upload>
+            </Form.Item>
+            <div className="add-btn-to-form">
+              <Button htmlType='submit' className='add-btn'>
+                {editProduct !== null ? "Update" : "Add"}
+              </Button>
+            </div>
+          </Form>
+        </Modal>
+      }
     </LayoutApp>
 
   )
