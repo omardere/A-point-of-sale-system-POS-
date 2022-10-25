@@ -122,3 +122,18 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.discount{
+  border:none;
+  outline: none;
+  padding-left: 8px;
+}
+.discount:focus{
+  border-bottom: 2px solid #001e28;
+}
+.total{
+  border-top: 2px dashed #001e28;
+}
+.total h2{
+  margin-top: 8px;
+}
+

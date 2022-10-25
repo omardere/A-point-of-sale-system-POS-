@@ -6,7 +6,8 @@ export type productType = {
   code: string,
   category:string,
   image: string,  
-  quantity:number      
+  quantity:number,
+  price:number      
 }
 export type categoriesType={
   name:string,
@@ -19,6 +20,8 @@ export interface products {
     code:string;
     category:string;
     image:string;
+    price:number ;   
+
   }
 }
 export type reactElementProps = {

@@ -19,7 +19,7 @@ const Product: React.FunctionComponent<products> = ({ prod }) => {
             style={{ width: 240, marginBottom: 30 }}
             cover={<img alt={prod.name} style={{ height: 200 }} src={imageSrc} />}
         >
-            <Meta title={prod.name} description={prod.category} />
+            <Meta title={prod.name} description={`$ ${prod.price}`} />
             <div className="product-buttons">
                 <Button onClick={() => handleCart()}>
                     Add to Cart

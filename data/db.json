@@ -5,231 +5,264 @@
       "category": "Burger",
       "image": "burger.png",
       "code": "402",
-      "id": "7Z1GmTA"
+      "id": "7Z1GmTA",
+      "price": 32
     },
     {
       "name": "kitkat",
       "category": "chocolate",
       "image": "kit-kat.jpg",
       "code": "778",
-      "id": "cYsgWn7"
+      "id": "cYsgWn7",
+      "price": 3
     },
     {
       "name": "dress shoes",
       "category": "shoes",
       "image": "dress shoes.png",
       "code": "500",
-      "id": "rAZViNZ"
+      "id": "rAZViNZ",
+      "price": 150
     },
     {
       "name": "adidas white shoes ",
       "category": "shoes",
       "image": "addids shoes.png",
       "code": "504",
-      "id": "eWWn7eR"
+      "id": "eWWn7eR",
+      "price": 300
     },
     {
       "name": "traditional shoes",
       "category": "shoes",
       "image": "old-shoes.png",
       "code": "747",
-      "id": "XxmLtu-"
+      "id": "XxmLtu-",
+      "price": 50
     },
     {
       "name": "Nike black shoes",
       "category": "shoes",
       "image": "shoes nike.jpg",
       "code": "124",
-      "id": "8vFEj8E"
+      "id": "8vFEj8E",
+      "price": 250
     },
     {
       "name": "Repok shoes",
       "category": "shoes",
       "image": "repok-shoes.webp",
       "code": "487",
-      "id": "B2TR4MJ"
+      "id": "B2TR4MJ",
+      "price": 150
     },
     {
       "name": "Native shoes",
       "category": "shoes",
       "image": "native shoes.jpg",
       "code": "214",
-      "id": "TVumBvc"
+      "id": "TVumBvc",
+      "price": 50
     },
     {
       "name": "Nike t-shirt",
       "category": "t-shirt",
       "image": "nike shirt.jpg",
       "code": "900",
-      "id": "Pznl0pE"
+      "id": "Pznl0pE",
+      "price": 50
     },
     {
       "name": "Adidas t-shirts",
       "category": "t-shirt",
       "image": "adidas shirt.webp",
       "code": "901",
-      "id": "4x3ZV35"
+      "id": "4x3ZV35",
+      "price": 40
     },
     {
       "name": "Yellow sad t-shirt",
       "category": "t-shirt",
       "image": "yellow sad shirt.jpg",
       "code": "902",
-      "id": "bbmriau"
+      "id": "bbmriau",
+      "price": 25
     },
     {
       "name": "White sad t-shirt",
       "category": "t-shirt",
       "image": "white sad shirt.webp",
       "code": "903",
-      "id": "-_JyTz-"
+      "id": "-_JyTz-",
+      "price": 25
     },
     {
       "name": "Blue sad t-shirt",
       "category": "t-shirt",
       "image": "blue sad shirt.jpg",
       "code": "904",
-      "id": "nC2GjH7"
+      "id": "nC2GjH7",
+      "price": 25
     },
     {
       "name": "Cotton t-shirt",
       "category": "t-shirt",
       "image": "cotton shirt.jpg",
       "code": "905",
-      "id": "lp43JsW"
+      "id": "lp43JsW",
+      "price": 35
     },
     {
       "name": "Red sad t-shirt",
       "category": "t-shirt",
       "image": "red sad shirt.jpg",
       "code": "906",
-      "id": "vFkBpo_"
+      "id": "vFkBpo_",
+      "price": 25
     },
     {
       "name": "Orange juce",
       "category": "drinks",
       "image": "cappy orange.jpg",
       "code": "600",
-      "id": "-TZ8OOM"
+      "id": "-TZ8OOM",
+      "price": 6
     },
     {
       "name": "XL",
       "category": "drinks",
       "image": "xl.jpeg",
       "code": "601",
-      "id": "-eBo3P2"
+      "id": "-eBo3P2",
+      "price": 5
     },
     {
       "name": "Sprite ",
       "category": "drinks",
       "image": "sprite.jpg",
       "code": "604",
-      "id": "nZkn6ep"
+      "id": "nZkn6ep",
+      "price": 3
     },
     {
       "name": "Sprite",
       "category": "drinks",
       "image": "plastic sprite.png",
       "code": "605",
-      "id": "GDIu_hg"
+      "id": "GDIu_hg",
+      "price": 2
     },
     {
       "name": "Fanta",
       "category": "drinks",
       "image": "fanta.jpg",
       "code": "606",
-      "id": "nDkg_eS"
+      "id": "nDkg_eS",
+      "price": 3
     },
     {
       "name": "Fanta",
       "category": "drinks",
       "image": "plastic fanta.png",
       "code": "607",
-      "id": "ZKngAq7"
+      "id": "ZKngAq7",
+      "price": 2
     },
     {
       "name": "Coca Cola",
       "category": "drinks",
       "image": "cola.jpg",
       "code": "608",
-      "id": "wQGB4SW"
+      "id": "wQGB4SW",
+      "price": 3
     },
     {
       "name": "Coca Cola",
       "category": "drinks",
       "image": "plastic cola.jpg",
       "code": "610",
-      "id": "zwUNn0_"
+      "id": "zwUNn0_",
+      "price": 2
     },
     {
       "name": "Coca Cola",
       "category": "drinks",
       "image": "glass cola.jpg",
       "code": "611",
-      "id": "ZGlHPV2"
+      "id": "ZGlHPV2",
+      "price": 2.5
     },
     {
       "name": "Said ",
       "category": "chocolate",
       "image": "said.jpg",
       "code": "1000",
-      "id": "42VwHqS"
+      "id": "42VwHqS",
+      "price": 1
     },
     {
       "name": "Oreo",
       "category": "chocolate",
       "image": "oreo.webp",
       "code": "1001",
-      "id": "IJbY_Hc"
+      "id": "IJbY_Hc",
+      "price": 1
     },
     {
       "name": "Bubbly",
       "category": "chocolate",
       "image": "bubbly.jpg",
       "code": "1002",
-      "id": "guhEA8p"
+      "id": "guhEA8p",
+      "price": 8
     },
     {
       "name": "Kinder",
       "category": "chocolate",
       "image": "kinder.jpg",
       "code": "1003",
-      "id": "jkVuZQO"
+      "id": "jkVuZQO",
+      "price": 3.5
     },
     {
       "name": "Galaxy",
       "category": "chocolate",
       "image": "galaxy.png",
       "code": "1005",
-      "id": "t7XM_pe"
+      "id": "t7XM_pe",
+      "price": 3
     },
     {
       "name": "Dairy Milk",
       "category": "chocolate",
       "image": "dairy milk.webp",
       "code": "1006",
-      "id": "WULQvhO"
+      "id": "WULQvhO",
+      "price": 2
     },
     {
       "name": "Humburger",
       "category": "Burger",
       "image": "humburger.jpg",
       "code": "141",
-      "id": "udNHoLX"
+      "id": "udNHoLX",
+      "price": 32
     },
     {
       "name": "Beef Burger",
       "category": "Burger",
       "image": "beef burger.jpg",
       "code": "545",
-      "id": "buoExIp"
+      "id": "buoExIp",
+      "price": 23
     },
     {
       "name": "Basic burger",
       "category": "Burger",
       "image": "basic burger.jpg",
       "code": "654",
-      "id": "T_8-ABZ"
+      "id": "T_8-ABZ",
+      "price": 28
     }
   ],
   "categories": [

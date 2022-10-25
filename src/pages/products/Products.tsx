@@ -65,7 +65,8 @@ const Products = () => {
       name: value.name,
       category: value.category,
       image: imageName,
-      code: value.code
+      code: value.code,
+      price:value.price
     })
   }
   const updateProducts = (value: any) => {
@@ -73,7 +74,8 @@ const Products = () => {
       name: value.name,
       category: value.category,
       image: imageName,
-      code: value.code
+      code: value.code,
+      price:value.price
     })
   }
 
@@ -139,6 +141,11 @@ const Products = () => {
       key: 'code',
     },
     {
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+    },
+    {
       title: 'Action',
       dataIndex: 'id',
       key: 'id',
@@ -167,6 +174,9 @@ const Products = () => {
               <Input />
             </FormItem>
             <FormItem name='code' label='Code'>
+              <Input />
+            </FormItem>
+            <FormItem name='price' label='Price'>
               <Input />
             </FormItem>
             <Form.Item name='category' label='Category'>
