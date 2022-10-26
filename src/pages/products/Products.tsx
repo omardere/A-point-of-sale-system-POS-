@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LayoutApp from '../../components/Layout'
 import { useDispatch } from "react-redux"
-import { deleteProducts, getAllCategories, getAllProducts } from '../../utils/api';
+import { addProducts, deleteProducts, getAllCategories, getAllProducts, updateProducts } from '../../utils/api';
 import { productType, categoriesType } from '../../types/productsType';
 import {
   DeleteOutlined,
@@ -12,7 +12,6 @@ import { Button, Form, Input, message, Modal, Select, Table, Upload } from 'antd
 import FormItem from 'antd/lib/form/FormItem';
 import axios from 'axios';
 
-
 const Products = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState<productType[]>([]);
@@ -22,14 +21,13 @@ const Products = () => {
   const [imageName, setImageName] = useState<string>("");
   const [editProduct, setEditProduct] = useState<any>(null);
   const { Search } = Input;
-
+  //filter products when searched
   const onSearch = (value: string) => {
     setSearchData(
       products.filter(product => product.name.toLowerCase().includes(value))
     )
   };
-
-
+  //fetch all products from back-end
   const fetchProducts = () => {
     getAllProducts()
       .then((res) => {
@@ -40,6 +38,7 @@ const Products = () => {
         console.log(error.toJSON());
       });
   }
+  //fetch all category from back-end
   const fetchCategories = () => {
     getAllCategories()
       .then((res) => {
@@ -47,36 +46,6 @@ const Products = () => {
       }).catch(function (error) {
         console.log(error.toJSON());
       });
-  }
-
-  useEffect(() => {
-    dispatch({
-      type: "SHOW_LOADING",
-    });
-    fetchProducts();
-    fetchCategories();
-    dispatch({
-      type: "HIDDEN_LOADING",
-    });
-  }, []);
-
-  const addProducts = (value: any) => {
-    axios.post(`http://localhost:8000/products`, {
-      name: value.name,
-      category: value.category,
-      image: imageName,
-      code: value.code,
-      price:value.price
-    })
-  }
-  const updateProducts = (value: any) => {
-    axios.put(`http://localhost:8000/products/${editProduct.id}`, {
-      name: value.name,
-      category: value.category,
-      image: imageName,
-      code: value.code,
-      price:value.price
-    })
   }
 
   const handleDelete = (record: any) => {
@@ -90,12 +59,13 @@ const Products = () => {
       type: "HIDDEN_LOADING",
     });
   }
+  //handle form input if add product or update it
   const handleInput = (value: any) => {
     if (editProduct === null) {
       dispatch({
         type: "SHOW_LOADING",
       });
-      addProducts(value);
+      addProducts(value, imageName);
       message.success('product added successfully');
       setTimeout(() => fetchProducts(), 1000)
       setPop(false);
@@ -107,7 +77,7 @@ const Products = () => {
       dispatch({
         type: "SHOW_LOADING",
       });
-      updateProducts(value);
+      updateProducts(value, imageName, editProduct.id);
       setTimeout(() => fetchProducts(), 1000)
       message.success('product updated successfully');
       setPop(false);
@@ -116,8 +86,7 @@ const Products = () => {
       });
     }
   }
-
-
+  //set columns of table
   const columns = [
     {
       title: 'name',
@@ -157,6 +126,18 @@ const Products = () => {
 
     },
   ];
+
+  useEffect(() => {
+    dispatch({
+      type: "SHOW_LOADING",
+    });
+    fetchProducts();
+    fetchCategories();
+    dispatch({
+      type: "HIDDEN_LOADING",
+    });
+  }, []);
+
   return (
     <LayoutApp >
       <h2>All products</h2>

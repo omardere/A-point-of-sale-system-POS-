@@ -117,23 +117,22 @@
   margin-bottom: 16px;
   margin-right: 0px;
 }
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.discount{
-  border:none;
+.discount {
+  border: none;
   outline: none;
   padding-left: 8px;
 }
-.discount:focus{
+.discount:focus {
   border-bottom: 2px solid #001e28;
 }
-.total{
+.total {
   border-top: 2px dashed #001e28;
 }
-.total h2{
+.total h2 {
   margin-top: 8px;
 }
-

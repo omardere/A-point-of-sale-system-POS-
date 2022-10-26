@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LayoutApp from '../../components/Layout'
 import { useDispatch } from "react-redux"
-import { deleteCategories, getAllCategories } from '../../utils/api';
+import { addCategories, deleteCategories, getAllCategories, updateCategories } from '../../utils/api';
 import { categoriesType } from '../../types/productsType';
 import {
   DeleteOutlined,
@@ -9,8 +9,6 @@ import {
 } from '@ant-design/icons';
 import { Button, Form, Input, message, Modal, Table } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
-import axios from 'axios';
-
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -19,16 +17,13 @@ const Categories = () => {
   const [pop, setPop] = useState<boolean>(false);
   const [editProduct, setEditProduct] = useState<any>(null);
   const { Search } = Input;
-
+  //filter categories when searched
   const onSearch = (value: string) => {
     setSearchData(
       categories.filter(product => product.name.toLowerCase().includes(value))
     )
   };
-
-
-
-
+  //fetch all category from back-end
   const fetchCategories = () => {
     getAllCategories()
       .then((res) => {
@@ -37,28 +32,6 @@ const Categories = () => {
       }).catch(function (error) {
         console.log(error.toJSON());
       });
-  }
-
-
-  useEffect(() => {
-    dispatch({
-      type: "SHOW_LOADING",
-    });
-    fetchCategories();
-    dispatch({
-      type: "HIDDEN_LOADING",
-    });
-  }, []);
-
-  const addCategories = (value: any) => {
-    axios.post(`http://localhost:8000/categories`, {
-      name: value.name,
-    }).then()
-  }
-  const updateCategories = (value: any) => {
-    axios.put(`http://localhost:8000/categories/${editProduct.id}`, {
-      name: value.name,
-    })
   }
 
   const handleDelete = (record: any) => {
@@ -72,6 +45,7 @@ const Categories = () => {
       type: "HIDDEN_LOADING",
     });
   }
+  //handle form input if add category or update it
   const handleInput = (value: any) => {
     if (editProduct === null) {
       dispatch({
@@ -89,7 +63,7 @@ const Categories = () => {
       dispatch({
         type: "SHOW_LOADING",
       });
-      updateCategories(value);
+      updateCategories(value, editProduct.id);
       setTimeout(() => fetchCategories(), 1000)
       message.success('Categories updated successfully');
       setPop(false);
@@ -98,8 +72,7 @@ const Categories = () => {
       });
     }
   }
-
-
+  //set columns of table
   const columns = [
     {
       title: 'name',
@@ -117,6 +90,17 @@ const Categories = () => {
         </div>
     },
   ];
+
+  useEffect(() => {
+    dispatch({
+      type: "SHOW_LOADING",
+    });
+    fetchCategories();
+    dispatch({
+      type: "HIDDEN_LOADING",
+    });
+  }, []);
+
   return (
     <LayoutApp >
       <h2>All products</h2>
@@ -148,24 +132,3 @@ const Categories = () => {
 
 export default Categories
 
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import LayoutApp from '../../components/Layout'
-
-// const Categories = () => {
-//     return (
-//         <LayoutApp >
-//             <h2>Categories</h2>
-//         </LayoutApp>
-//     )
-// }
-
-// export default Categories

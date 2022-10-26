@@ -6,24 +6,21 @@ import { Col, Form, Input, Row } from 'antd';
 import Product from '../../components/Product';
 import { categoriesType, productType } from '../../types/productsType';
 import { useDispatch } from "react-redux"
-import FormItem from 'antd/lib/form/FormItem';
-
-
 
 const Home = () => {
-
     const [products, setProducts] = useState<productType[]>([]);
     const [searchData, setSearchData] = useState<productType[]>([]);
     const [categories, setCategories] = useState<categoriesType[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string>("jeans");
     const dispatch = useDispatch();
     const { Search } = Input;
-
+    //filter products when searched
     const onSearch = (value: string) => {
         setSearchData(
             products.filter(product => product.name.toLowerCase().includes(value))
         )
     };
+    //fetch all products from back-end
     const fetchProducts = () => {
         getAllProducts()
             .then((res) => {
@@ -33,6 +30,7 @@ const Home = () => {
                 console.log(error.toJSON());
             });
     }
+    //fetch all category from back-end because filtering 
     const fetchCategories = () => {
         getAllCategories()
             .then((res) => {
@@ -42,7 +40,7 @@ const Home = () => {
                 console.log(error.toJSON());
             });
     }
-
+    //fetch product and make 1sec delay to show loading
     useEffect(() => {
         dispatch({
             type: "SHOW_LOADING",
@@ -56,6 +54,7 @@ const Home = () => {
         fetchCategories();
 
     }, [dispatch]);
+
     return (
         <div>
             <LayoutApp >
@@ -63,7 +62,7 @@ const Home = () => {
                     {categories.map(category => {
                         return (
                             <div key={category.id} className={`category-box ${selectedCategory === category.name &&
-                                'category-selected'}`} onClick={() => {setSelectedCategory(category.name);setSearchData(products)}}>
+                                'category-selected'}`} onClick={() => { setSelectedCategory(category.name); setSearchData(products) }}>
                                 <h3 className="category-name">
                                     {category.name}
                                 </h3>
@@ -72,7 +71,7 @@ const Home = () => {
                     })}
                 </div>
                 <div className="search">
-                    <Search  placeholder="input search text"  onSearch={onSearch} enterButton />
+                    <Search placeholder="input search text" onSearch={onSearch} enterButton />
                 </div>
 
                 <Row>
@@ -91,5 +90,4 @@ const Home = () => {
         </div>
     )
 }
-
 export default Home

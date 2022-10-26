@@ -44,13 +44,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.cart-items{
+.cart-items {
   position: relative;
   margin-right: 24px;
   cursor: pointer;
 }
-.cart-size{
- padding: 5px;
+.cart-size {
+  padding: 5px;
   top: -10px;
   right: -24px;
   background-color: #001e28;

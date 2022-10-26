@@ -253,8 +253,8 @@
       "category": "Burger",
       "image": "beef burger.jpg",
       "code": "545",
-      "id": "buoExIp",
-      "price": 23
+      "price": "24",
+      "id": "buoExIp"
     },
     {
       "name": "Basic burger",

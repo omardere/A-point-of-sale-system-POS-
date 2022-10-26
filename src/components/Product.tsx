@@ -12,6 +12,7 @@ const Product: React.FunctionComponent<products> = ({ prod }) => {
             payload: { ...prod, quantity: 1 }
         })
     }
+    // path for image
     let imageSrc = `image/${prod.image}`
     return (
         <Card

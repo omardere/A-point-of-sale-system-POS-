@@ -123,7 +123,6 @@ const Cart = () => {
             </div>
             <div className="total">
                 <h2>Total: <span>$ {(subTotal + (subTotal * tax) - (discount * subTotal)).toFixed(2)}</span></h2>
-
             </div>
         </LayoutApp>
 
