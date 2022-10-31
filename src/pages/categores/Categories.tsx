@@ -15,6 +15,7 @@ const Categories = () => {
   const [categories, setCategories] = useState<categoriesType[]>([]);
   const [searchData, setSearchData] = useState<categoriesType[]>([]);
   const [pop, setPop] = useState<boolean>(false);
+  const [deleteDialog, setDeleteDialog] = useState<any>(false);
   const [editProduct, setEditProduct] = useState<any>(null);
   const { Search } = Input;
   //filter categories when searched
@@ -41,6 +42,7 @@ const Categories = () => {
     deleteCategories(record).then(message.success('Categories deleted successfully'));
     setTimeout(() => fetchCategories(), 1000)
     setPop(false);
+    setDeleteDialog(false);
     dispatch({
       type: "HIDDEN_LOADING",
     });
@@ -51,8 +53,7 @@ const Categories = () => {
       dispatch({
         type: "SHOW_LOADING",
       });
-      addCategories(value);
-      message.success('Categories added successfully');
+      addCategories(value).then(message.success('Categories added successfully'));
       setTimeout(() => fetchCategories(), 1000)
       setPop(false);
       dispatch({
@@ -85,7 +86,7 @@ const Categories = () => {
       key: 'id',
       render: (id: string, record: any) =>
         <div>
-          <DeleteOutlined onClick={() => handleDelete(record)} className='remove-product-from-cart' />
+          <DeleteOutlined onClick={() => { setDeleteDialog(record) }} className='remove-product-from-cart' />
           <EditOutlined onClick={() => { setEditProduct(record); setPop(true) }} className='edit-product' />
         </div>
     },
@@ -125,6 +126,13 @@ const Categories = () => {
           </Form>
         </Modal>
       }
+      {
+        deleteDialog &&
+        <Modal title="Confirm Delete" open={deleteDialog} onOk={() => handleDelete(deleteDialog)} onCancel={() => { setDeleteDialog(false) }}>
+
+        </Modal>
+      }
+
     </LayoutApp>
 
   )
