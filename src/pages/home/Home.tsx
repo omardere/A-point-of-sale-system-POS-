@@ -63,9 +63,9 @@ const Home = () => {
                         return (
                             <div key={category.id} className={`category-box ${selectedCategory === category.name &&
                                 'category-selected'}`} onClick={() => { setSelectedCategory(category.name); setSearchData(products) }}>
-                                <h3 className="category-name">
+                                <h5 className="category-name">
                                     {category.name}
-                                </h3>
+                                </h5>
                             </div>
                         )
                     })}

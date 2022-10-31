@@ -9,20 +9,25 @@ import {
 } from '@ant-design/icons';
 import { Button, Form, Input, message, Modal, Table } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
+import _ from 'lodash';
 
 const Categories = () => {
   const dispatch = useDispatch();
   const [categories, setCategories] = useState<categoriesType[]>([]);
   const [searchData, setSearchData] = useState<categoriesType[]>([]);
+  const [paginatedProducts, setPaginatedProducts] = useState<categoriesType[]>();
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [pop, setPop] = useState<boolean>(false);
   const [deleteDialog, setDeleteDialog] = useState<any>(false);
   const [editProduct, setEditProduct] = useState<any>(null);
   const { Search } = Input;
+  const pageSize = 10;
   //filter categories when searched
   const onSearch = (value: string) => {
-    setSearchData(
-      categories.filter(product => product.name.toLowerCase().includes(value))
-    )
+
+    const data = categories.filter(product => product.name.toLowerCase().includes(value))
+    setSearchData(data);
+    setPaginatedProducts(_(data).slice(0).take(pageSize).value());
   };
   //fetch all category from back-end
   const fetchCategories = () => {
@@ -30,11 +35,11 @@ const Categories = () => {
       .then((res) => {
         setCategories(res.data);
         setSearchData(res.data);
+        setPaginatedProducts(_(res.data).slice(0).take(pageSize).value());
       }).catch(function (error) {
         console.log(error.toJSON());
       });
   }
-
   const handleDelete = (record: any) => {
     dispatch({
       type: "SHOW_LOADING",
@@ -73,6 +78,16 @@ const Categories = () => {
       });
     }
   }
+  //determine number of pages
+  const pageCount = searchData ? Math.ceil(searchData.length / pageSize) : 0;
+  const pages = _.range(1, pageCount + 1);
+
+  const pagination = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    const startIndex = (pageNumber - 1) * pageSize;
+    const paginatedProduct = _(searchData).slice(startIndex).take(pageSize).value();
+    setPaginatedProducts(paginatedProduct);
+  }
   //set columns of table
   const columns = [
     {
@@ -109,7 +124,49 @@ const Categories = () => {
         <Button onClick={() => setPop(true)} className='add-new'>Add New Category</Button>
         <Search style={{ width: "30%" }} placeholder="input search text" onSearch={onSearch} enterButton />
       </div>
-      <Table dataSource={searchData} columns={columns} />;
+      <div>
+        {paginatedProducts ?
+          (<table className='table'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                paginatedProducts.map((product) => (
+                  <tr key={product.id}>
+                    <td>{product.name}</td>
+                    <td>
+                      <div>
+                        <DeleteOutlined onClick={() => { setDeleteDialog(product) }} className='remove-product-from-cart' />
+                        <EditOutlined onClick={() => { setEditProduct(product); setPop(true) }} className='edit-product' />
+                      </div>
+                    </td>
+                  </tr>
+
+                )
+                )
+              }
+
+            </tbody>
+          </table>
+          ) : ("No Data Found")}
+        <nav className='d-flex '>
+          <ul className='pagination'>
+            {
+              pages.map((pageNumber) => (
+                <li className={pageNumber === currentPage ? "page-item active" : "page-item"}>
+                  <p className='page-link' onClick={() => pagination(pageNumber)}>{pageNumber}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+      {/* this from antd */}
+      {/* <Table dataSource={searchData} columns={columns} />; */}
       {
         pop &&
         <Modal title={`${editProduct !== null ? "Edit Product" : "Add New Category"}`} open={pop} onCancel={() => { setEditProduct(null); setPop(false) }} footer={false}>
@@ -129,7 +186,7 @@ const Categories = () => {
       {
         deleteDialog &&
         <Modal title="Confirm Delete" open={deleteDialog} onOk={() => handleDelete(deleteDialog)} onCancel={() => { setDeleteDialog(false) }}>
-
+          <p>if you confirm to delete this category</p>
         </Modal>
       }
 

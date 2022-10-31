@@ -9,7 +9,9 @@
 #components-layout-demo-custom-trigger .trigger:hover {
   color: #1890ff;
 }
-
+.ant-menu-dark .ant-menu-item>span>a {
+  text-decoration: none;
+}
 #components-layout-demo-custom-trigger .logo {
   height: 32px;
   margin: 16px;

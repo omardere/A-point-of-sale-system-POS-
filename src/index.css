@@ -133,6 +133,10 @@
 .total {
   border-top: 2px dashed #001e28;
 }
-.total h2 {
+.total p {
   margin-top: 8px;
+}
+.accounting{
+  font-size: medium;
+  font-weight: bold;
 }
