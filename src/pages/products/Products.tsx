@@ -256,7 +256,7 @@ const Products = () => {
       {
         deleteDialog &&
         <Modal title="Confirm Delete" open={deleteDialog} onOk={() => handleDelete(deleteDialog)} onCancel={() => { setDeleteDialog(false) }}>
-          <p>if you confirm to delete this category</p>
+          <p>if you confirm to delete this product</p>
         </Modal>
       }
 
